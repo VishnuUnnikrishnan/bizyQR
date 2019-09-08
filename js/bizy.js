@@ -11,7 +11,9 @@ $( document ).ready(function() {
 
 function loadsavedCard(card){
     $(".qr_code").qrcode({
-        text:card[0]
+        text:card[0],
+        width: 500,
+        height:500
     });
 
     $(".modal-header").html(card[1] + "'s Contact Details");
@@ -59,7 +61,9 @@ function createQR(){
     card = card+name+fn+org+title+address+phone+email+website+end;
     $(".qr_code").empty();
     $(".qr_code").qrcode({
-        text:card
+        text:card,
+        width: 500,
+        height:500
     });
     saveData(card, $("#fname").val());
 }
