@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>BizyQR</title>
+
+        <!--JS Libraries-->
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+            crossorigin="anonymous">
+        </script>
+        <script 
+            src="js/qrcode.js">
+        </script>
+        <script 
+            src="js/jquery.qrcode.js">
+        </script>
+        <script 
+            src="js/bizy.js">
+        </script>
+        <!--CSS Libraries-->
+        <link 
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+            rel="stylesheet" 
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+            crossorigin="anonymous">
+        <link 
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+            rel="stylesheet" 
+            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
+            crossorigin="anonymous">
+        
+    </head>
+
+    <body>
+        <div class="jumbotron text-center">
+            <h1 class="display-4 text-center">bizyQR</h1>
+            <hr class="my-4">
+            <p>Build your own contact info QR Code below! Or just scan in a contact by opening your camera app and hold it over the QR Code!</p>
+        </div>
+        <div class = "container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h2>Add your Details</h2>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label " for="fname">Your Name:</label>
+                <div class="col-sm-10">
+                    <div class="row">
+                        <div class="col-6">
+                            <input class="form-control" formcontrolname="firstname" id="fname" type="text" placeholder="First name">
+                        </div>
+                        <div class="col-6">
+                            <input class="form-control" formcontrolname="lastname" id="lname" type="text" placeholder="Last name">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="phone">Phone Number:</label>
+                <div class="col-sm-10"><input class="form-control" formcontrolname="phone" id="phone" type="text" placeholder="Phone Number">
+                </div>
+            </div>
+            <div class="form-group row"><label class="col-sm-2 col-form-label" for="email">Email:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" formcontrolname="email" id="email" type="text" placeholder="your@email.com">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="company">Company:</label>
+                <div class="col-sm-10">
+                    <div class="row">
+                        <div class="col-6"><input class="form-control" formcontrolname="company" id="company" type="text" placeholder="Company">
+                        </div>
+                        <div class="col-6"><input class="form-control" formcontrolname="title" id="title" type="text" placeholder="Your Title">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="url">Website:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" formcontrolname="url" id="url" type="text" placeholder="www.your-website.com">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="address">Address:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" formcontrolname="address" id="address" type="text" placeholder="Street Address">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="suburb">Suburb:</label>
+                <div class="col-sm-10">
+                    <div class="row">
+                        <div class="col-8">
+                            <input class="form-control" formcontrolname="suburb" id="suburb" type="text">
+                        </div>
+                        <div class="col-4">
+                            <input class="form-control" formcontrolname="postcode" id="postcode" type="text" placeholder="postcode">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="state">State:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" formcontrolname="state" id="state" type="text">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="country">Country:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" formcontrolname="country" id="country" type="text">
+                </div>
+            </div>
+            <div class="row">
+                <dev class="col-sm-12 text-center">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".qrmodal" onClick="createQR()">Generate QR Code</button>
+                </dev>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12 text-center">
+                    <hr>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6 text-center">
+                    <a href="https://vishnu.unnikrishnan.com.au">&copy; Vishnu Unnikrishnan&nbsp;<ydate></ydate></a>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <a href="tcsprivacy.html">Terms & Conditions</a>
+                </div>
+            </div>  
+        </div>
+        <div class="modal fade qrmodal" tabindex="-1" role="dialog" aria-labelledby="QRCode" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    </div>
+                    <div class="modal-body">
+                        <div class = "qr_code text-center">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        Open your camera app and focus it on the QR code. You should see a pop up asking whether to add to contacts.
+                    </div>
+                </div>
+            </div>
+        </div>
+              
+    </body>
+</html>
