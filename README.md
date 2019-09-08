@@ -8,3 +8,7 @@ To solve that pain point I built bizyQR. You enter your details and generate a Q
 Check it out here: https://vishnuunnikrishnan.github.io/bizyQR/
 
 Oh, Its all completely open source and free.
+
+For the write ups go here:
+
+https://vishnu.unnikrishnan.com.au/2019/09/08/share-your-contact-details-easily-with-bizyqr/
