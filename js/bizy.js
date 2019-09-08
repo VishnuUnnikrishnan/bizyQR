@@ -1,8 +1,9 @@
 $( document ).ready(function() {
     setDate();
-    $(".qr_code").empty();
+    
+    
+    //
     data = getSavedData();
-
     if (data != null){
         loadsavedCard(data);
     }
@@ -10,11 +11,25 @@ $( document ).ready(function() {
 });
 
 function loadsavedCard(card){
+    
+    $(".qr_code").empty()
     $(".qr_code").qrcode({
-        text:card[0],
+        text:card,
         width: 500,
         height:500
     });
+    
+    $("#fname").val(localStorage.getItem('fname'));
+    $("#lname").val(localStorage.getItem('lname'));
+    $("#company").val(localStorage.getItem('company'));
+    $("#title").val(localStorage.getItem('title'));
+    $("#email").val(localStorage.getItem('email'));
+    $("#phone").val(localStorage.getItem('phone'));
+    $("#website").val(localStorage.getItem('website'));
+    $("#street").val(localStorage.getItem('street'));
+    $("#postcode").val(localStorage.getItem('postcode'));
+    $("#state").val(localStorage.getItem('state'));
+    $("#country").val(localStorage.getItem('country'));
 
     $(".modal-header").html(card[1] + "'s Contact Details");
     $('.qrmodal').modal('show');
@@ -29,14 +44,23 @@ function getSavedData(){
     if(data === null){
         return null;
     }
-    name = localStorage.getItem('name');
 
-    return [data, name];
+    return data;
 }
 
-function saveData(card, name){
+function saveData(card){
     localStorage.setItem('card',card);
-    localStorage.setItem('name',name);
+    localStorage.setItem('fname',$("#fname").val());
+    localStorage.setItem('lname',$("#lname").val());
+    localStorage.setItem('company',$("#company").val());
+    localStorage.setItem('title',$("#title").val());
+    localStorage.setItem('email',$("#email").val());
+    localStorage.setItem('phone',$("#phone").val());
+    localStorage.setItem('website',$("#website").val());
+    localStorage.setItem('street',$("#street").val());
+    localStorage.setItem('postcode',$("#postcode").val());
+    localStorage.setItem('state',$("#state").val());
+    localStorage.setItem('country',$("#country").val());
 }
 
 function createQR(){
@@ -59,11 +83,6 @@ function createQR(){
     $(".modal-header").html($("#fname").val() + "'s Contact Details");
 
     card = card+name+fn+org+title+address+phone+email+website+end;
-    $(".qr_code").empty();
-    $(".qr_code").qrcode({
-        text:card,
-        width: 500,
-        height:500
-    });
-    saveData(card, $("#fname").val());
+    saveData(card);
+    loadSavedCard(card);
 }
