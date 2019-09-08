@@ -1,5 +1,5 @@
 # bizyQR
-BizyQR is a new way to share your contact information
+bizyQR is a new way to share your contact information
 
 It seems rather backward to have to give out business cards or recite out phone number, emails and addresses to share our contact details. Further in our ever greening world, printing out business cards is wasteful and inefficient.
 
