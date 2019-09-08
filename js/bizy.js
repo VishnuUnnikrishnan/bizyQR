@@ -31,7 +31,7 @@ function loadsavedCard(card){
     $("#state").val(localStorage.getItem('state'));
     $("#country").val(localStorage.getItem('country'));
 
-    $(".modal-header").html(card[1] + "'s Contact Details");
+    $(".modal-header").html(localStorage.getItem('fname')+ "'s Contact Details");
     $('.qrmodal').modal('show');
 }
 
