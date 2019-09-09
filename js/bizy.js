@@ -25,7 +25,7 @@ function loadsavedCard(card){
     $("#title").val(localStorage.getItem('title'));
     $("#email").val(localStorage.getItem('email'));
     $("#phone").val(localStorage.getItem('phone'));
-    $("#website").val(localStorage.getItem('website'));
+    $("#url").val(localStorage.getItem('url'));
     $("#street").val(localStorage.getItem('street'));
     $("#postcode").val(localStorage.getItem('postcode'));
     $("#state").val(localStorage.getItem('state'));
@@ -56,7 +56,7 @@ function saveData(card){
     localStorage.setItem('title',$("#title").val());
     localStorage.setItem('email',$("#email").val());
     localStorage.setItem('phone',$("#phone").val());
-    localStorage.setItem('website',$("#website").val());
+    localStorage.setItem('url',$("#url").val());
     localStorage.setItem('street',$("#street").val());
     localStorage.setItem('postcode',$("#postcode").val());
     localStorage.setItem('state',$("#state").val());
