@@ -84,5 +84,5 @@ function createQR(){
 
     card = card+name+fn+org+title+address+phone+email+website+end;
     saveData(card);
-    loadSavedCard(card);
+    loadsavedCard(card);
 }
